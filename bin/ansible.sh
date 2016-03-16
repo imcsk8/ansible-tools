@@ -31,8 +31,8 @@ PLAYBOOK_PATH='$HOME/utils/ansible-tools.git/playbooks/packstack/'
 DEFAULT_PLAYBOOK='allinone.yml'
 
 if [[ ${RELEASE} != ""  ]]; then
-    PLAYBOOK="allinone-rhos.yml"
-    TEMPLATE="$PLAYBOOK_PATH/RHEL-7.2-Template"
+    PLAYBOOK="$PLAYBOOK_PATH/allinone-rhos.yml"
+    TEMPLATE="RHEL-7.2-Template"
 else
     PLAYBOOK="$PLAYBOOK_PATH/$DEFAULT_PLAYBOOK"
 fi
