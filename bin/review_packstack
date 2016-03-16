@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Wraps the ansible preparation script in a screen session 
+# so we can keep working 
+
+NAME=$1
+BRANCH=$2
+REVIEW=$3
+TAGS=$4
+PLAYBOOK=$5
+SLEEP=$6
+RELEASE=$7
+
+screen -t "ansible_${NAME}" -S "ansible_${NAME}" ./ansible.sh $NAME $BRANCH $REVIEW $SLEEP $RELEASE $TAGS $PLAYBOOK

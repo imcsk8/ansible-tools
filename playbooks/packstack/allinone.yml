@@ -1,0 +1,56 @@
+---
+# should be run with this arguments: --extra-vars "name=<name> release=<rhos release> branch=<packstack git branch> reviews=<gerrit reviews. eg. refs/changes/96/269696/1:refs/changes/26/273226/3:>"
+- hosts: VM
+  remote_user: root
+  tasks:
+  - hostname: name={{name}}
+  - name: Copy scripts to host
+    copy: src={{item}} dest=/home/{{item}} mode=0777
+    with_items:
+      - prepare_rhos.sh
+      - prepare_rdo.sh
+      - deploy_packstack.sh
+    tags:
+      - prepare
+  - name: Set hostname on /etc/hosts
+    shell: sed -i 's/localhost /localhost {{name}} /' /etc/hosts
+    tags:
+      - prepare
+  - name: Prepare RDO environment
+    shell: /home/prepare_rdo.sh {{branch}} >> /home/packstack.log
+    tags: 
+      - prepare
+  - name: Optimize network
+    shell: ip link set mtu 1454 eth0
+    tags:
+      - prepare
+  - name: Install needed packages for Packstack
+    yum: state=present name={{item}}
+    with_items:
+      - git
+      - python-setuptools
+      - python-crypto
+      - python-netaddr
+      - yum-fastestmirror
+      - yum-presto
+      - deltarpm
+      - libffi
+      - libffi-devel
+      - python-devel
+      - openssl-devel
+      - python-enum34
+      - python-pycparser
+    tags:
+      - prepare
+  - name: Deploy Packstack
+    shell: /home/deploy_packstack.sh {{branch}} {{reviews}} 2>&1 >> /home/packstack.log
+    tags:
+      - deploy
+  - name: Run Packstack
+    shell: packstack -d --allinone 2>&1 >> /home/packstack.log
+    async: 3600
+    poll: 25
+    register: out
+
+  - debug: var=out.stdout_lines
+
