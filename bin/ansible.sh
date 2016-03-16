@@ -32,9 +32,9 @@ DEFAULT_PLAYBOOK='allinone.yml'
 
 if [[ ${RELEASE} != ""  ]]; then
     PLAYBOOK="allinone-rhos.yml"
-    TEMPLATE="RHEL-7.2-Template"
+    TEMPLATE="$PLAYBOOK_PATH/RHEL-7.2-Template"
 else
-    PLAYBOOK=$DEFAULT_PLAYBOOK
+    PLAYBOOK="$PLAYBOOK_PATH/$DEFAULT_PLAYBOOK"
 fi
 
 echo "Setting playbook to ${PLAYBOOK}"
