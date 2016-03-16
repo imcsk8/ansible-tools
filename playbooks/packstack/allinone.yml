@@ -51,6 +51,8 @@
     async: 3600
     poll: 25
     register: out
+    tags:
+      - run
 
   - debug: var=out.stdout_lines
 
