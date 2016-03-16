@@ -47,15 +47,14 @@ if [[ "${SLEEP}" == "" ]]; then
     SLEEP=60
 fi
 
-
-
 echo "[VM]" > ./packstack-test-hosts 
 create_vm $TEMPLATE $NAME
 
 
-
+# Create a screen session for the playbook execution
 screen -L -h 1000 -t $NAME -dmS $NAME ansible-playbook -i ./packstack-test-hosts  --extra-vars "name=$NAME branch=$BRANCH reviews=$REVIEW" $PLAYBOOK $TAG_SWITCH
 
+# Create a screen session for viewing the packstack log file
 screen -t "$NAME-console" -dmS "$NAME-console" ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null root@$IP 'touch /home/packstack.log; tail -f /home/packstack.log'
 
 
