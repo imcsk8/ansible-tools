@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Clone a libvirt managed image
+
+ORIGINAL=$1
+NEW=$2
+SERVER=$3
+IMAGE_PATH="/space/images"
+
+
+echo "SERVER: $SERVER"
+
+if [[ "${SERVER}" != "" ]]; then
+    virt-clone --connect qemu+ssh://$SERVER/system -o $ORIGINAL -n $NEW -f "$IMAGE_PATH/$NEW.img"
+else
+    virt-clone --connect qemu:///system -o $ORIGINAL -n $NEW -f "$IMAGE_PATH/$NEW.img"
+fi
+

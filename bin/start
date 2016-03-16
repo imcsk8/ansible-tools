@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Start a virtual machine managed by libvirt
+
+ORIGINAL=$1
+SERVER=$2
+
+if [[ "${SERVER}" != "" ]]; then
+    virsh -c qemu+ssh://$SERVER/system  start $1
+else
+    virsh -c qemu:///system start $1
+fi
+
+
+
