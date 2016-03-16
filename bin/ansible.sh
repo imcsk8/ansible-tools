@@ -27,14 +27,14 @@ if [[ ${TEMPLATE} == "" ]]; then
     TEMPLATE="CentOS-7.0-Template"
 fi
 
-PLAYBOOK_PATH='$HOME/utils/ansible-tools.git/playbooks/packstack/'
+PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/packstack/"
 DEFAULT_PLAYBOOK='allinone.yml'
 
 if [[ ${RELEASE} != ""  ]]; then
-    PLAYBOOK="$PLAYBOOK_PATH/allinone-rhos.yml"
+    PLAYBOOK="${PLAYBOOK_PATH}/allinone-rhos.yml"
     TEMPLATE="RHEL-7.2-Template"
 else
-    PLAYBOOK="$PLAYBOOK_PATH/$DEFAULT_PLAYBOOK"
+    PLAYBOOK="${PLAYBOOK_PATH}/${DEFAULT_PLAYBOOK}"
 fi
 
 echo "Setting playbook to ${PLAYBOOK}"
