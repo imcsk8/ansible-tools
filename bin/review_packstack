@@ -8,7 +8,8 @@ BRANCH=$2
 REVIEW=$3
 TAGS=$4
 PLAYBOOK=$5
-SLEEP=$6
-RELEASE=$7
+TEMPLATE=$6
+SLEEP=$7
+RELEASE=$8
 
-screen -t "ansible_${NAME}" -S "ansible_${NAME}" ./ansible.sh $NAME $BRANCH $REVIEW $SLEEP $RELEASE $TAGS $PLAYBOOK
+screen -t "ansible_${NAME}" -S "ansible_${NAME}" ./ansible.sh $NAME $BRANCH $REVIEW $TAGS $PLAYBOOK $TEMPLATE $SLEEP $RELEASE
