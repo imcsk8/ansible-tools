@@ -27,7 +27,7 @@ if [[ ${TEMPLATE} == "" ]]; then
     TEMPLATE="CentOS-7.0-Template"
 fi
 
-PLAYBOOK_PATH='/home/ichavero/ansible-tools.git/playbook/packstack/'
+PLAYBOOK_PATH='$HOME/utils/ansible-tools.git/playbooks/packstack/'
 DEFAULT_PLAYBOOK='allinone.yml'
 
 if [[ ${RELEASE} != ""  ]]; then
