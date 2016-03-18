@@ -7,7 +7,6 @@
   - name: Copy scripts to host
     copy: src={{item}} dest=/home/{{item}} mode=0777
     with_items:
-      - prepare_rhos.sh
       - prepare_rdo.sh
       - deploy_packstack.sh
     tags:
