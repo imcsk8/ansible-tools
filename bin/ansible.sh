@@ -12,6 +12,8 @@ SLEEP=$7
 RELEASE=$8
 TAG_SWITCH=""
 
+# Change this to your playbook path
+PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/packstack/"
 
 function create_vm {
     ./clone $1 $2
@@ -27,7 +29,6 @@ if [[ ${TEMPLATE} == "" ]]; then
     TEMPLATE="CentOS-7.0-Template"
 fi
 
-PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/packstack/"
 DEFAULT_PLAYBOOK='allinone.yml'
 
 if [[ ${RELEASE} != ""  ]]; then
