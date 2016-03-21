@@ -7,12 +7,15 @@ BRANCH=$1
 
 case ${BRANCH} in
     *liberty)
+        echo "Using liberty repos"
         yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-liberty/rdo-release-liberty-2.noarch.rpm
     ;;
     *kilo)
+        echo "Using kilo repos"
         yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-kilo/rdo-release-kilo-1.noarch.rpm
     ;;
     *juno)
+        echo "Using juno repos"
         yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-juno/rdo-release-juno-1.noarch.rpm
     ;;
     *)
