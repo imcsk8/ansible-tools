@@ -8,7 +8,7 @@ BRANCH=$1
 case ${BRANCH} in
     *mitaka)
         echo "Using mitaka repos"
-        curl http://trunk.rdoproject.org/centos7-mitaka/current-passed-ci/delorean.repo | tee /etc/yum.repos.d/delorean.repo
+        yum install -y http://rdoproject.org/repos/rdo-release.rpm is now pointing to rdo-release-mitaka.rpm
     ;;
     *liberty)
         echo "Using liberty repos"
@@ -24,8 +24,9 @@ case ${BRANCH} in
     ;;
     *)
         echo "No branch added using delorean"
-        curl http://trunk.rdoproject.org/centos7-master/delorean-deps.repo |tee /etc/yum.repos.d/delorean-deps.repo
         curl http://trunk.rdoproject.org/centos7-master/current/delorean.repo |tee /etc/yum.repos.d/delorean.repo
+        # It's easier to change the repo url than to generate a new repo file :P
+        curl http://trunk.rdoproject.org/centos7-master/delorean-deps.repo | sed 's/liberty/mitaka/' > /etc/yum.repos.d/delorean-deps.repo
         #yum install -y https://rdoproject.org/repos/rdo-release.rpm
     ;;
 
