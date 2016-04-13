@@ -8,7 +8,7 @@ BRANCH=$1
 case ${BRANCH} in
     *mitaka)
         echo "Using mitaka repos"
-        yum install -y http://rdoproject.org/repos/rdo-release.rpm is now pointing to rdo-release-mitaka.rpm
+        yum install -y http://rdoproject.org/repos/rdo-release-mitaka.rpm
     ;;
     *liberty)
         echo "Using liberty repos"
