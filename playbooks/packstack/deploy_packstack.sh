@@ -33,7 +33,11 @@ for review in "${REVIEWS[@]}"; do
 done
 
 python setup.py install
-python setup.py install_puppet_modules
+cd ~/packstack
+export GEM_HOME=/tmp/opm-install
+gem install r10k
+/tmp/opm-install/bin/r10k puppetfile install -v
+cp -r packstack/puppet/modules/packstack /usr/share/openstack-puppet/modules
 
 echo "installing temporal dependencies"
 yum install -y python-pip
