@@ -35,4 +35,6 @@ done
 python setup.py install
 python setup.py install_puppet_modules
 
-
+echo "installing temporal dependencies"
+yum install -y python-pip
+easy_install oslo.privsep
