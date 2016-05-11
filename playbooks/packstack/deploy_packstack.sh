@@ -35,6 +35,7 @@ done
 python setup.py install
 cd ~/packstack
 export GEM_HOME=/tmp/opm-install
+yum install -y rubygems
 gem install r10k
 /tmp/opm-install/bin/r10k puppetfile install -v
 cp -r packstack/puppet/modules/packstack /usr/share/openstack-puppet/modules
