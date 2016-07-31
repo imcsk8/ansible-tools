@@ -40,6 +40,6 @@ gem install r10k
 /tmp/opm-install/bin/r10k puppetfile install -v
 cp -r packstack/puppet/modules/packstack /usr/share/openstack-puppet/modules
 
-echo "installing temporal dependencies"
-yum install -y python-pip
-easy_install oslo.privsep
+#echo "installing temporal dependencies"
+#yum install -y python-pip
+#easy_install oslo.privsep

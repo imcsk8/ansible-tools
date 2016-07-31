@@ -24,8 +24,8 @@ case ${BRANCH} in
     ;;
     *)
         echo "No branch added using delorean"
-        curl http://trunk.rdoproject.org/centos7-master/current/delorean.repo |tee /etc/yum.repos.d/delorean.repo
-        curl http://trunk.rdoproject.org/centos7-master/delorean-deps.repo |tee /etc/yum.repos.d/delorean-deps.repo
+        curl http://trunk.rdoproject.org/centos7/current/delorean.repo |tee /etc/yum.repos.d/dlrn.repo
+        curl http://trunk.rdoproject.org/centos7/dlrn-deps.repo |tee /etc/yum.repos.d/dlrn-deps.repo
     ;;
 
 esac
