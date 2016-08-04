@@ -16,7 +16,7 @@ case ${BRANCH} in
     ;;
     *kilo)
         echo "Using kilo repos"
-        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-kilo/rdo-release-kilo-1.noarch.rpm
+        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-kilo/rdo-release-kilo-2.noarch.rpm
     ;;
     *juno)
         echo "Using juno repos"
