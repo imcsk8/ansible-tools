@@ -32,6 +32,8 @@ for review in "${REVIEWS[@]}"; do
     fi
 done
 
+yum install -y python-netaddr python-pbr python-docutils pyOpenSSL PyYAML
+
 python setup.py install
 cd ~/packstack
 export GEM_HOME=/tmp/opm-install

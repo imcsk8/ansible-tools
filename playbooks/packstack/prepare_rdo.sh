@@ -3,6 +3,8 @@
 
 echo "Prepare RDO environment for installng packstack"
 
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
 BRANCH=$1
 
 case ${BRANCH} in
