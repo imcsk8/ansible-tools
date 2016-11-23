@@ -8,21 +8,21 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 BRANCH=$1
 
 case ${BRANCH} in
+    *newton)
+        echo "Using mitaka repos"
+        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-newton/rdo-release-newton-2.noarch.rpm
+    ;;
     *mitaka)
         echo "Using mitaka repos"
         yum install -y http://rdoproject.org/repos/openstack-mitaka/rdo-release-mitaka.rpm
     ;;
     *liberty)
         echo "Using liberty repos"
-        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-liberty/rdo-release-liberty-2.noarch.rpm
+        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-liberty/rdo-release-liberty-5.noarch.rpm
     ;;
     *kilo)
         echo "Using kilo repos"
         yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-kilo/rdo-release-kilo-2.noarch.rpm
-    ;;
-    *juno)
-        echo "Using juno repos"
-        yum install -y https://repos.fedorapeople.org/repos/openstack/openstack-juno/rdo-release-juno-1.noarch.rpm
     ;;
     *)
         echo "No branch added using delorean"
