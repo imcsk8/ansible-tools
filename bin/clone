@@ -5,7 +5,7 @@
 ORIGINAL=$1
 NEW=$2
 SERVER=$3
-IMAGE_PATH="/space/images"
+IMAGE_PATH="/var/lib/libvirt/images"
 
 
 echo "SERVER: $SERVER"

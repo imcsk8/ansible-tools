@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Wraps the ansible preparation script in a screen session 
+# so we can keep working 
+
+NAME=$1
+export PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/aos"
+export PLAYBOOK="${PLAYBOOK_PATH}/origin-docker.yaml"
+
+screen -t "ansible_ORIGIN_${NAME}" -S "ansible_ORIGIN_${NAME}" ./ansible.sh $NAME

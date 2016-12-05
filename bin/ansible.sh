@@ -6,14 +6,23 @@ NAME=$1
 BRANCH=$2
 REVIEW=$3
 TAGS=$4
-PLAYBOOK=$5
+if [[ ${PLAYBOOK} == "" ]]; then
+    PLAYBOOK=$5
+else 
+    echo "Using PLAYBOOK from environment"
+fi
 TEMPLATE=$6
 SLEEP=$7
 RELEASE=$8
 TAG_SWITCH=""
 
 # Change this to your playbook path
-PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/packstack/"
+if [[ ${PLAYBOOK_PATH} == "" ]]; then
+    PLAYBOOK_PATH="${HOME}/utils/ansible-tools.git/playbooks/packstack/"
+else
+    echo "Using PLAYBOOK_PATH from environment"
+fi
+
 DEFAULT_PLAYBOOK='allinone.yml'
 
 function create_vm {
