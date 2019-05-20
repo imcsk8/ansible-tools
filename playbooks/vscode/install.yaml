@@ -1,0 +1,7 @@
+---
+# Install the vscodium binary from developer rpm
+- hosts: all
+  tasks:
+  - name: Install VSCodium
+    yum: name=https://github.com/VSCodium/vscodium/releases/download/1.34.0/vscodium-1.34.0-1558029589.el7.x86_64.rpm
+
