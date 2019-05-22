@@ -2,7 +2,7 @@
 # Install the vscodium binary from developer rpm, this playbook should be run
 # as the user that will run vscodium
 # if the user needs password for sudo you need to use the --ask-become-pass command line switch
-- hosts: all
+- hosts: localhost
   tasks:
   - name: Install VSCodium
     package: 
