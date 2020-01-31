@@ -2,6 +2,11 @@
 
 VM=$1
 SERVER=$2
+USER="root"
+
+if [[ "${3}" != "" ]]; then
+    USER=$3
+fi    
 
 if [[ "${SERVER}" != "" ]]; then
     IP=`./virt-addr.pl $1 $SERVER`
@@ -9,4 +14,4 @@ else
     IP=`./virt-addr.pl $1`
 fi
 
-screen -h 1000 -t $1 -S $1 ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null root@$IP
+screen -h 1000 -t $1 -S $1 ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null ${USER}@${IP}
